@@ -1,0 +1,22 @@
+{
+  "name": "conduit-playwright-suite",
+  "version": "1.0.0",
+  "description": "Playwright (JavaScript) test suite for the Conduit RealWorld demo app: API, end-to-end and permission tests.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:local": "cross-env PW_CHANNEL=chrome playwright test",
+    "test:api": "playwright test --project=api",
+    "test:ui": "cross-env PW_CHANNEL=chrome playwright test --ui",
+    "report": "playwright show-report"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "cross-env": "10.1.0"
+  }
+}
