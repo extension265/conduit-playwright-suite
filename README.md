@@ -1,6 +1,7 @@
 # Conduit Playwright Suite
 
 [![Playwright tests](https://github.com/extension265/conduit-playwright-suite/actions/workflows/playwright.yml/badge.svg)](https://github.com/extension265/conduit-playwright-suite/actions/workflows/playwright.yml)
+· [Latest test report](https://extension265.github.io/conduit-playwright-suite/)
 
 A small automated test suite for [Conduit](https://conduit.bondaracademy.com), the RealWorld demo app (an Angular SPA over a REST API),
 written with **Playwright + JavaScript (CommonJS)**. It covers sign-up, sign-in, the full article lifecycle, a cross-user

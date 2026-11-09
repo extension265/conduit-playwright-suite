@@ -49,3 +49,31 @@ jobs:
           path: test-results/
           retention-days: 14
           if-no-files-found: ignore
+
+      # Stage the HTML report for GitHub Pages (pushes to main only); the job below deploys it.
+      - name: Upload report for GitHub Pages
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: playwright-report/
+
+  # Publishes the latest main-branch report to https://extension265.github.io/conduit-playwright-suite/
+  # Runs even when tests failed, so the report of a red build is viewable too.
+  publish-report:
+    needs: test
+    if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v6
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
