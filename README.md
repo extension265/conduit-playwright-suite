@@ -149,9 +149,9 @@ and `package-lock.json` is committed, so CI and local runs use the same version.
 
 | Part | Time |
 |---|---|
-| Recon (API + UI behaviour, locators) | _fill in_ |
-| Part 1: suite, CI, README | _fill in_ |
-| Part 2: GSP write-up | _fill in_ |
-| **Total** | _fill in_ |
+| Recon (API + UI behaviour, locators) | 15 min |
+| Part 1: suite, CI, README | 1 h 15 min |
+| Part 2: GSP write-up | 45 min |
+| **Total** | ~2 h 15 min |
 
-Built with AI assistance (Claude). Every behaviour the tests assert was verified against the live instance first.
+Built with AI assistance (Claude Code) inside the time above; I directed the approach, reviewed every file, and every behaviour the tests assert was verified against the live instance first. Part 1 came in well under the 3–4 h box because the AI handled most of the typing; the time went on recon, review and verification.
