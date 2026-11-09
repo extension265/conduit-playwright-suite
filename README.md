@@ -103,8 +103,9 @@ User A owns an article (created through the API). User B is a different, valid u
 **The UI redirect is a client-side guard only.** Anyone can call the API directly, so the UI test proves B isn't *offered* the
 action, while the API test proves B *can't do* it. If I could keep only one, I'd keep the API test.
 
-Both tests were checked by breaking them: logging the UI test in as A (the owner) makes it fail with
-`Expected: 0, Received: 2` Edit links.
+Both tests were checked by breaking them on purpose:
+- API: sending the PUT with A's token instead of B's makes it fail with `Expected: 403, Received: 200`.
+- UI: logging in as A (the owner) makes it fail with `Expected: 0, Received: 2` Edit links.
 
 Observed status codes (full table in [docs/recon-notes.md](docs/recon-notes.md)): register 201, login 200 (wrong password **403**, not the spec's 422),
 create 201, get 200, update 200, delete **204**, deleted/unknown article 404, duplicate email/username 422,
